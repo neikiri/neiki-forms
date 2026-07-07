@@ -1,0 +1,40 @@
+{
+  "name": "neiki-forms",
+  "version": "1.0.0",
+  "description": "Lightweight, dependency-free CDN-ready Forms Web Component with built-in field types, validation, multi-step mode, themes, and i18n support",
+  "keywords": [
+    "forms",
+    "form-builder",
+    "form-validation",
+    "multi-step-form",
+    "web-components",
+    "custom-elements",
+    "vanilla-js",
+    "i18n"
+  ],
+  "scripts": {
+    "test": "node --check src/neiki-forms.js",
+    "build": "python3 minify.py"
+  },
+  "main": "dist/neiki-forms.min.js",
+  "exports": {
+    ".": "./dist/neiki-forms.min.js",
+    "./style": "./dist/neiki-forms.min.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "style": "dist/neiki-forms.min.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neikiri/neiki-forms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neikiri/neiki-forms/issues"
+  },
+  "unpkg": "dist/neiki-forms.min.js",
+  "jsdelivr": "dist/neiki-forms.min.js",
+  "homepage": "https://github.com/neikiri/neiki-forms#readme",
+  "author": "Jindřich Stoklasa <jindrichstoklasa1@gmail.com>",
+  "license": "MIT"
+}
