@@ -1,162 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta name="description" content="Demo of Neiki's Forms, a lightweight, CDN-ready Web Component for building customizable forms without dependencies."><meta name="robots" content="index, follow"><meta property="og:type" content="website"><meta property="og:title" content="Neiki's Forms – Forms Web Component"><meta property="og:description" content="A lightweight Web Component for customizable forms without dependencies."><meta property="og:url" content="https://neikiri.dev/forms/"><meta name="twitter:card" content="summary">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neiki's Forms — Demo</title>
-<script src="../src/neiki-forms.js"></script>
-<style>
-  :root {
-    color-scheme: light dark;
-  }
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 0 0 120px;
-    background: #f7f7f9;
-    color: #1f2328;
-  }
-  @media (prefers-color-scheme: dark) {
-    body { background: #16181d; color: #f2f3f5; }
-  }
-  header {
-    position: relative;
-    padding: 48px 24px 24px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .header-github {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    color: inherit;
-    opacity: 0.75;
-    transition: opacity 0.15s ease;
-  }
-  .header-github:hover,
-  .header-github:focus-visible {
-    opacity: 1;
-  }
-  .header-github svg {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-  }
-  .header-logo {
-    height: 56px;
-    width: auto;
-  }
-  header p {
-    opacity: 0.75;
-    margin: 0;
-    max-width: 560px;
-  }
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  section {
-    margin: 48px 0;
-  }
-  section h2 {
-    font-size: 1.15rem;
-    border-bottom: 1px solid rgba(127,127,127,0.25);
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-  }
-  section > p.lead {
-    opacity: 0.75;
-    margin-top: -10px;
-    margin-bottom: 20px;
-    font-size: 0.92rem;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-  }
-  .card {
-    background: rgba(127,127,127,0.06);
-    border: 1px solid rgba(127,127,127,0.15);
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .card > span.label {
-    font-size: 0.8rem;
-    opacity: 0.65;
-  }
-  pre {
-    background: rgba(127,127,127,0.1);
-    border-radius: 8px;
-    padding: 12px 16px;
-    overflow-x: auto;
-    font-size: 0.85rem;
-  }
-  button.demo-btn {
-    font: inherit;
-    padding: 6px 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(127,127,127,0.3);
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
-  }
-  button.demo-btn.is-active {
-    border-color: #2563eb;
-    color: #2563eb;
-  }
-  .btn-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
-  #log {
-    background: rgba(127,127,127,0.1);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 0.8rem;
-    max-height: 160px;
-    overflow-y: auto;
-    font-family: ui-monospace, monospace;
-  }
-  @media (max-width: 560px) {
-    .header-github { position: static; }
-  }
-</style>
+    <meta name="description" content="Demo of Neiki's Forms, a lightweight, CDN-ready Web Component for building customizable forms without dependencies.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Neiki's Forms – Forms Web Component">
+    <meta property="og:description" content="A lightweight Web Component for customizable forms without dependencies.">
+    <meta property="og:url" content="https://neikiri.dev/forms/">
+    <meta name="twitter:card" content="summary">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neiki's Forms — Demo</title>
+    <script src="../src/neiki-forms.js"></script>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0 0 120px;
+            background: #f7f7f9;
+            color: #1f2328;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #16181d;
+                color: #f2f3f5;
+            }
+        }
+
+        header {
+            position: relative;
+            padding: 48px 24px 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-github {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            color: inherit;
+            opacity: 0.75;
+            transition: opacity 0.15s ease;
+        }
+
+        .header-github:hover,
+        .header-github:focus-visible {
+            opacity: 1;
+        }
+
+        .header-github svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .header-logo {
+            height: 56px;
+            width: auto;
+        }
+
+        header p {
+            opacity: 0.75;
+            margin: 0;
+            max-width: 560px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            margin: 48px 0;
+        }
+
+        section h2 {
+            font-size: 1.15rem;
+            border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        section>p.lead {
+            opacity: 0.75;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-size: 0.92rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: rgba(127, 127, 127, 0.06);
+            border: 1px solid rgba(127, 127, 127, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card>span.label {
+            font-size: 0.8rem;
+            opacity: 0.65;
+        }
+
+        pre {
+            background: rgba(127, 127, 127, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+        }
+
+        button.demo-btn {
+            font: inherit;
+            padding: 6px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(127, 127, 127, 0.3);
+            background: transparent;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        button.demo-btn.is-active {
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        #log {
+            background: rgba(127, 127, 127, 0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 0.8rem;
+            max-height: 160px;
+            overflow-y: auto;
+            font-family: ui-monospace, monospace;
+        }
+
+        @media (max-width: 560px) {
+            .header-github {
+                position: static;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-  <a class="header-github" href="https://github.com/neikiri/neiki-forms" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.27-.01-1.15-.02-2.09-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
-  </a>
-  <img src="../assets/img/logo.svg" class="header-logo" alt="Neiki's Forms">
-  <p>A lightweight, CDN-ready form Web Component — built-in fields, validation, multi-step mode, themes, and i18n. No framework required.</p>
-</header>
+    <header>
+        <a class="header-github" href="https://github.com/neikiri/neiki-forms" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.27-.01-1.15-.02-2.09-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z" />
+            </svg>
+        </a>
+        <img src="../assets/img/logo.svg" class="header-logo" alt="Neiki's Forms">
+        <p>A lightweight, CDN-ready form Web Component — built-in fields, validation, multi-step mode, themes, and i18n. No framework required.</p>
+    </header>
 
-<main>
+    <main>
 
-  <section>
-    <h2>Basic usage</h2>
-    <p class="lead">A single <code>&lt;neiki-forms&gt;</code> tag, fed with a schema through <code>setSchema()</code>. Fields, labels, validation and layout are all driven by plain JavaScript objects.</p>
-    <div class="card">
-      <neiki-forms id="basic-form"></neiki-forms>
-    </div>
-    <pre>&lt;neiki-forms id="fm"&gt;&lt;/neiki-forms&gt;
+        <section>
+            <h2>Basic usage</h2>
+            <p class="lead">A single <code>&lt;neiki-forms&gt;</code> tag, fed with a schema through <code>setSchema()</code>. Fields, labels, validation and layout are all driven by plain JavaScript objects.</p>
+            <div class="card">
+                <neiki-forms id="basic-form"></neiki-forms>
+            </div>
+            <pre>&lt;neiki-forms id="fm"&gt;&lt;/neiki-forms&gt;
 
 fm.setSchema({
   fields: [
@@ -170,85 +206,85 @@ fm.setSchema({
 fm.addEventListener('neiki-forms:submit', function (event) {
   console.log(event.detail.values);
 });</pre>
-  </section>
+        </section>
 
-  <section>
-    <h2>Field types &amp; validation</h2>
-    <p class="lead">Text, email, password (with show/hide toggle), number, date, select, checkboxes, switches, radio groups, range and file — each with built-in validation rules (required, pattern, min/max length, matching fields, custom validators).</p>
-    <div class="card">
-      <neiki-forms id="fields-form"></neiki-forms>
-    </div>
-  </section>
+        <section>
+            <h2>Field types &amp; validation</h2>
+            <p class="lead">Text, email, password (with show/hide toggle), number, date, select, checkboxes, switches, radio groups, range and file — each with built-in validation rules (required, pattern, min/max length, matching fields, custom validators).</p>
+            <div class="card">
+                <neiki-forms id="fields-form"></neiki-forms>
+            </div>
+        </section>
 
-  <section>
-    <h2>Multi-step mode</h2>
-    <p class="lead">Pass <code>steps</code> instead of <code>fields</code> to get a wizard with a progress indicator. Each step validates before advancing, and previously completed steps stay clickable.</p>
-    <div class="card">
-      <neiki-forms id="wizard-form"></neiki-forms>
-    </div>
-  </section>
+        <section>
+            <h2>Multi-step mode</h2>
+            <p class="lead">Pass <code>steps</code> instead of <code>fields</code> to get a wizard with a progress indicator. Each step validates before advancing, and previously completed steps stay clickable.</p>
+            <div class="card">
+                <neiki-forms id="wizard-form"></neiki-forms>
+            </div>
+        </section>
 
-  <section>
-    <h2>Themes &amp; accents</h2>
-    <p class="lead">Each instance resolves <code>light</code> / <code>dark</code> / <code>auto</code> independently, and any of six accent colors (<code>blue</code>, <code>violet</code>, <code>emerald</code>, <code>rose</code>, <code>amber</code>, <code>slate</code>).</p>
-    <div class="grid">
-      <div class="card">
-        <span class="label">light · violet</span>
-        <neiki-forms id="theme-1" theme="light" accent="violet"></neiki-forms>
-      </div>
-      <div class="card">
-        <span class="label">dark · emerald</span>
-        <neiki-forms id="theme-2" theme="dark" accent="emerald"></neiki-forms>
-      </div>
-      <div class="card">
-        <span class="label">auto (follows OS) · rose</span>
-        <neiki-forms id="theme-3" theme="auto" accent="rose"></neiki-forms>
-      </div>
-    </div>
-  </section>
+        <section>
+            <h2>Themes &amp; accents</h2>
+            <p class="lead">Each instance resolves <code>light</code> / <code>dark</code> / <code>auto</code> independently, and any of six accent colors (<code>blue</code>, <code>violet</code>, <code>emerald</code>, <code>rose</code>, <code>amber</code>, <code>slate</code>).</p>
+            <div class="grid">
+                <div class="card">
+                    <span class="label">light · violet</span>
+                    <neiki-forms id="theme-1" theme="light" accent="violet"></neiki-forms>
+                </div>
+                <div class="card">
+                    <span class="label">dark · emerald</span>
+                    <neiki-forms id="theme-2" theme="dark" accent="emerald"></neiki-forms>
+                </div>
+                <div class="card">
+                    <span class="label">auto (follows OS) · rose</span>
+                    <neiki-forms id="theme-3" theme="auto" accent="rose"></neiki-forms>
+                </div>
+            </div>
+        </section>
 
-  <section>
-    <h2>Internationalization (i18n)</h2>
-    <p class="lead">Built-in translations for English, Czech, German, Spanish, French, Polish, Slovak and Ukrainian — switch with <code>setLang()</code> or the <code>lang</code> attribute. Add your own with <code>addTranslations()</code>.</p>
-    <div class="btn-row" id="lang-buttons">
-      <button class="demo-btn" data-lang="en">English</button>
-      <button class="demo-btn" data-lang="cs">Čeština</button>
-      <button class="demo-btn" data-lang="de">Deutsch</button>
-      <button class="demo-btn" data-lang="es">Español</button>
-      <button class="demo-btn" data-lang="fr">Français</button>
-      <button class="demo-btn" data-lang="pl">Polski</button>
-      <button class="demo-btn" data-lang="sk">Slovenčina</button>
-      <button class="demo-btn" data-lang="uk">Українська</button>
-    </div>
-    <div class="card">
-      <neiki-forms id="lang-form"></neiki-forms>
-    </div>
-    <pre>fm.setLang('cs');
+        <section>
+            <h2>Internationalization (i18n)</h2>
+            <p class="lead">Built-in translations for English, Czech, German, Spanish, French, Polish, Slovak and Ukrainian — switch with <code>setLang()</code> or the <code>lang</code> attribute. Add your own with <code>addTranslations()</code>.</p>
+            <div class="btn-row" id="lang-buttons">
+                <button class="demo-btn" data-lang="en">English</button>
+                <button class="demo-btn" data-lang="cs">Čeština</button>
+                <button class="demo-btn" data-lang="de">Deutsch</button>
+                <button class="demo-btn" data-lang="es">Español</button>
+                <button class="demo-btn" data-lang="fr">Français</button>
+                <button class="demo-btn" data-lang="pl">Polski</button>
+                <button class="demo-btn" data-lang="sk">Slovenčina</button>
+                <button class="demo-btn" data-lang="uk">Українська</button>
+            </div>
+            <div class="card">
+                <neiki-forms id="lang-form"></neiki-forms>
+            </div>
+            <pre>fm.setLang('cs');
 
 fm.addTranslations('en', {
   nav: { submit: 'Send it' }
 });</pre>
-  </section>
+        </section>
 
-  <section>
-    <h2>JavaScript API &amp; events</h2>
-    <p class="lead">The <code>submit</code> event is cancelable — call <code>event.preventDefault()</code> and use <code>event.detail.values</code> to wire up your own API. Without an <code>action</code> attribute and without canceling, the component simply emits <code>success</code>.</p>
-    <div class="card">
-      <neiki-forms id="api-form"></neiki-forms>
-      <div class="btn-row" style="margin-top:8px; margin-bottom:0;">
-        <button class="demo-btn" data-action="fill">setValues()</button>
-        <button class="demo-btn" data-action="validate">validate()</button>
-        <button class="demo-btn" data-action="reset">reset()</button>
-        <button class="demo-btn" data-action="submit">submit()</button>
-      </div>
-    </div>
-    <h3>Event log</h3>
-    <div id="log"></div>
-  </section>
+        <section>
+            <h2>JavaScript API &amp; events</h2>
+            <p class="lead">The <code>submit</code> event is cancelable — call <code>event.preventDefault()</code> and use <code>event.detail.values</code> to wire up your own API. Without an <code>action</code> attribute and without canceling, the component simply emits <code>success</code>.</p>
+            <div class="card">
+                <neiki-forms id="api-form"></neiki-forms>
+                <div class="btn-row" style="margin-top:8px; margin-bottom:0;">
+                    <button class="demo-btn" data-action="fill">setValues()</button>
+                    <button class="demo-btn" data-action="validate">validate()</button>
+                    <button class="demo-btn" data-action="reset">reset()</button>
+                    <button class="demo-btn" data-action="submit">submit()</button>
+                </div>
+            </div>
+            <h3>Event log</h3>
+            <div id="log"></div>
+        </section>
 
-  <section>
-    <h2>CDN-style usage</h2>
-    <pre>&lt;script src="https://cdn.neikiri.dev/neiki-forms/neiki-forms.min.js"&gt;&lt;/script&gt;
+        <section>
+            <h2>CDN-style usage</h2>
+            <pre>&lt;script src="https://cdn.neikiri.dev/neiki-forms/neiki-forms.min.js"&gt;&lt;/script&gt;
 
 &lt;neiki-forms id="fm"&gt;&lt;/neiki-forms&gt;
 &lt;script&gt;
@@ -258,146 +294,345 @@ fm.addTranslations('en', {
     ]
   });
 &lt;/script&gt;</pre>
-  </section>
+        </section>
 
-</main>
+    </main>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
 
-    // Basic usage
-    var basicForm = document.getElementById('basic-form');
-    basicForm.setSchema({
-      fields: [
-        { type: 'text', name: 'name', label: 'Full name', required: true, width: 'half', placeholder: 'Jane Doe' },
-        { type: 'email', name: 'email', label: 'Email', required: true, width: 'half', placeholder: 'jane@example.com' },
-        { type: 'textarea', name: 'message', label: 'Message', rows: 4, help: 'Tell us a bit about your project.' }
-      ],
-      submitLabel: 'Send message'
-    });
-    basicForm.addEventListener('neiki-forms:success', function () {
-      window.alert('Message sent! (demo only, no backend wired up)');
-    });
+            // Basic usage
+            var basicForm = document.getElementById('basic-form');
+            basicForm.setSchema({
+                fields: [{
+                        type: 'text',
+                        name: 'name',
+                        label: 'Full name',
+                        required: true,
+                        width: 'half',
+                        placeholder: 'Jane Doe'
+                    },
+                    {
+                        type: 'email',
+                        name: 'email',
+                        label: 'Email',
+                        required: true,
+                        width: 'half',
+                        placeholder: 'jane@example.com'
+                    },
+                    {
+                        type: 'textarea',
+                        name: 'message',
+                        label: 'Message',
+                        rows: 4,
+                        help: 'Tell us a bit about your project.'
+                    }
+                ],
+                submitLabel: 'Send message'
+            });
+            basicForm.addEventListener('neiki-forms:success', function() {
+                window.alert('Message sent! (demo only, no backend wired up)');
+            });
 
-    // Field types & validation
-    var fieldsForm = document.getElementById('fields-form');
-    fieldsForm.setSchema({
-      fields: [
-        { type: 'text', name: 'username', label: 'Username', required: true, minLength: 3, maxLength: 20, width: 'half', help: '3–20 characters.' },
-        { type: 'number', name: 'age', label: 'Age', min: 18, max: 120, width: 'half' },
-        { type: 'password', name: 'password', label: 'Password', required: true, minLength: 8, width: 'half', help: 'At least 8 characters.' },
-        { type: 'password', name: 'confirmPassword', label: 'Confirm password', required: true, match: 'password', matchLabel: 'Password', width: 'half' },
-        { type: 'select', name: 'country', label: 'Country', required: true, placeholder: 'Select a country', width: 'third',
-          options: [ { value: 'cz', label: 'Czechia' }, { value: 'sk', label: 'Slovakia' }, { value: 'de', label: 'Germany' }, { value: 'us', label: 'United States' } ] },
-        { type: 'date', name: 'birthdate', label: 'Birth date', width: 'third' },
-        { type: 'range', name: 'satisfaction', label: 'Satisfaction', min: 0, max: 10, step: 1, defaultValue: 7, width: 'third' },
-        { type: 'radio', name: 'plan', label: 'Plan', required: true, width: 'half',
-          options: [ { value: 'free', label: 'Free' }, { value: 'pro', label: 'Pro' }, { value: 'team', label: 'Team' } ] },
-        { type: 'checkbox-group', name: 'interests', label: 'Interests', width: 'half',
-          options: [ { value: 'design', label: 'Design' }, { value: 'dev', label: 'Development' }, { value: 'marketing', label: 'Marketing' } ] },
-        { type: 'switch', name: 'newsletter', label: 'Subscribe to the newsletter', width: 'half' },
-        { type: 'file', name: 'avatar', label: 'Avatar', accept: 'image/*', width: 'half' },
-        { type: 'checkbox', name: 'terms', label: 'I agree to the terms and conditions', required: true }
-      ],
-      submitLabel: 'Create account'
-    });
+            // Field types & validation
+            var fieldsForm = document.getElementById('fields-form');
+            fieldsForm.setSchema({
+                fields: [{
+                        type: 'text',
+                        name: 'username',
+                        label: 'Username',
+                        required: true,
+                        minLength: 3,
+                        maxLength: 20,
+                        width: 'half',
+                        help: '3–20 characters.'
+                    },
+                    {
+                        type: 'number',
+                        name: 'age',
+                        label: 'Age',
+                        min: 18,
+                        max: 120,
+                        width: 'half'
+                    },
+                    {
+                        type: 'password',
+                        name: 'password',
+                        label: 'Password',
+                        required: true,
+                        minLength: 8,
+                        width: 'half',
+                        help: 'At least 8 characters.'
+                    },
+                    {
+                        type: 'password',
+                        name: 'confirmPassword',
+                        label: 'Confirm password',
+                        required: true,
+                        match: 'password',
+                        matchLabel: 'Password',
+                        width: 'half'
+                    },
+                    {
+                        type: 'select',
+                        name: 'country',
+                        label: 'Country',
+                        required: true,
+                        placeholder: 'Select a country',
+                        width: 'third',
+                        options: [{
+                            value: 'cz',
+                            label: 'Czechia'
+                        }, {
+                            value: 'sk',
+                            label: 'Slovakia'
+                        }, {
+                            value: 'de',
+                            label: 'Germany'
+                        }, {
+                            value: 'us',
+                            label: 'United States'
+                        }]
+                    },
+                    {
+                        type: 'date',
+                        name: 'birthdate',
+                        label: 'Birth date',
+                        width: 'third'
+                    },
+                    {
+                        type: 'range',
+                        name: 'satisfaction',
+                        label: 'Satisfaction',
+                        min: 0,
+                        max: 10,
+                        step: 1,
+                        defaultValue: 7,
+                        width: 'third'
+                    },
+                    {
+                        type: 'radio',
+                        name: 'plan',
+                        label: 'Plan',
+                        required: true,
+                        width: 'half',
+                        options: [{
+                            value: 'free',
+                            label: 'Free'
+                        }, {
+                            value: 'pro',
+                            label: 'Pro'
+                        }, {
+                            value: 'team',
+                            label: 'Team'
+                        }]
+                    },
+                    {
+                        type: 'checkbox-group',
+                        name: 'interests',
+                        label: 'Interests',
+                        width: 'half',
+                        options: [{
+                            value: 'design',
+                            label: 'Design'
+                        }, {
+                            value: 'dev',
+                            label: 'Development'
+                        }, {
+                            value: 'marketing',
+                            label: 'Marketing'
+                        }]
+                    },
+                    {
+                        type: 'switch',
+                        name: 'newsletter',
+                        label: 'Subscribe to the newsletter',
+                        width: 'half'
+                    },
+                    {
+                        type: 'file',
+                        name: 'avatar',
+                        label: 'Avatar',
+                        accept: 'image/*',
+                        width: 'half'
+                    },
+                    {
+                        type: 'checkbox',
+                        name: 'terms',
+                        label: 'I agree to the terms and conditions',
+                        required: true
+                    }
+                ],
+                submitLabel: 'Create account'
+            });
 
-    // Multi-step
-    var wizardForm = document.getElementById('wizard-form');
-    wizardForm.setSchema({
-      steps: [
-        {
-          id: 'account', title: 'Account',
-          fields: [
-            { type: 'text', name: 'wFullName', label: 'Full name', required: true },
-            { type: 'email', name: 'wEmail', label: 'Email', required: true }
-          ]
-        },
-        {
-          id: 'address', title: 'Address',
-          fields: [
-            { type: 'text', name: 'wStreet', label: 'Street', required: true, width: 'half' },
-            { type: 'text', name: 'wCity', label: 'City', required: true, width: 'half' }
-          ]
-        },
-        {
-          id: 'review', title: 'Review',
-          fields: [
-            { type: 'static', heading: 'Almost done', text: 'Review your details and submit when ready.' },
-            { type: 'switch', name: 'wConfirm', label: 'I confirm the details above are correct', required: true }
-          ]
-        }
-      ],
-      submitLabel: 'Finish'
-    });
+            // Multi-step
+            var wizardForm = document.getElementById('wizard-form');
+            wizardForm.setSchema({
+                steps: [{
+                        id: 'account',
+                        title: 'Account',
+                        fields: [{
+                                type: 'text',
+                                name: 'wFullName',
+                                label: 'Full name',
+                                required: true
+                            },
+                            {
+                                type: 'email',
+                                name: 'wEmail',
+                                label: 'Email',
+                                required: true
+                            }
+                        ]
+                    },
+                    {
+                        id: 'address',
+                        title: 'Address',
+                        fields: [{
+                                type: 'text',
+                                name: 'wStreet',
+                                label: 'Street',
+                                required: true,
+                                width: 'half'
+                            },
+                            {
+                                type: 'text',
+                                name: 'wCity',
+                                label: 'City',
+                                required: true,
+                                width: 'half'
+                            }
+                        ]
+                    },
+                    {
+                        id: 'review',
+                        title: 'Review',
+                        fields: [{
+                                type: 'static',
+                                heading: 'Almost done',
+                                text: 'Review your details and submit when ready.'
+                            },
+                            {
+                                type: 'switch',
+                                name: 'wConfirm',
+                                label: 'I confirm the details above are correct',
+                                required: true
+                            }
+                        ]
+                    }
+                ],
+                submitLabel: 'Finish'
+            });
 
-    // Themes
-    ['theme-1', 'theme-2', 'theme-3'].forEach(function (id) {
-      document.getElementById(id).setSchema({
-        fields: [
-          { type: 'text', name: 'field1', label: 'Label' },
-          { type: 'switch', name: 'field2', label: 'Toggle option' }
-        ],
-        submitLabel: 'Submit'
-      });
-    });
+            // Themes
+            ['theme-1', 'theme-2', 'theme-3'].forEach(function(id) {
+                document.getElementById(id).setSchema({
+                    fields: [{
+                            type: 'text',
+                            name: 'field1',
+                            label: 'Label'
+                        },
+                        {
+                            type: 'switch',
+                            name: 'field2',
+                            label: 'Toggle option'
+                        }
+                    ],
+                    submitLabel: 'Submit'
+                });
+            });
 
-    // i18n
-    var langForm = document.getElementById('lang-form');
-    langForm.setSchema({
-      fields: [
-        { type: 'text', name: 'lName', label: 'Name', required: true, width: 'half' },
-        { type: 'email', name: 'lEmail', label: 'Email', required: true, width: 'half' },
-        { type: 'checkbox', name: 'lAgree', label: 'I agree to the terms', required: true }
-      ],
-      submitLabel: 'Submit'
-    });
-    document.querySelectorAll('#lang-buttons [data-lang]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        langForm.setLang(btn.getAttribute('data-lang'));
-        document.querySelectorAll('#lang-buttons [data-lang]').forEach(function (b) { b.classList.remove('is-active'); });
-        btn.classList.add('is-active');
-      });
-    });
-    document.querySelector('#lang-buttons [data-lang="en"]').classList.add('is-active');
+            // i18n
+            var langForm = document.getElementById('lang-form');
+            langForm.setSchema({
+                fields: [{
+                        type: 'text',
+                        name: 'lName',
+                        label: 'Name',
+                        required: true,
+                        width: 'half'
+                    },
+                    {
+                        type: 'email',
+                        name: 'lEmail',
+                        label: 'Email',
+                        required: true,
+                        width: 'half'
+                    },
+                    {
+                        type: 'checkbox',
+                        name: 'lAgree',
+                        label: 'I agree to the terms',
+                        required: true
+                    }
+                ],
+                submitLabel: 'Submit'
+            });
+            document.querySelectorAll('#lang-buttons [data-lang]').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    langForm.setLang(btn.getAttribute('data-lang'));
+                    document.querySelectorAll('#lang-buttons [data-lang]').forEach(function(b) {
+                        b.classList.remove('is-active');
+                    });
+                    btn.classList.add('is-active');
+                });
+            });
+            document.querySelector('#lang-buttons [data-lang="en"]').classList.add('is-active');
 
-    // API & events
-    var apiForm = document.getElementById('api-form');
-    apiForm.setSchema({
-      fields: [
-        { type: 'text', name: 'apiName', label: 'Name', required: true, width: 'half' },
-        { type: 'email', name: 'apiEmail', label: 'Email', required: true, width: 'half' }
-      ],
-      submitLabel: 'Submit'
-    });
-    var log = document.getElementById('log');
-    function logLine(text) {
-      var line = document.createElement('div');
-      line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + text;
-      log.prepend(line);
-    }
-    ['ready', 'input', 'change', 'validate', 'invalid', 'submit', 'success', 'error', 'reset'].forEach(function (name) {
-      apiForm.addEventListener('neiki-forms:' + name, function () {
-        logLine(name);
-      });
-    });
-    document.querySelectorAll('[data-action]').forEach(function (button) {
-      button.addEventListener('click', function () {
-        var action = button.getAttribute('data-action');
-        if (action === 'fill') {
-          apiForm.setValues({ apiName: 'Jindřich Stoklasa', apiEmail: 'jindrich@example.com' });
-        } else if (action === 'validate') {
-          apiForm.validate();
-        } else if (action === 'reset') {
-          apiForm.reset();
-        } else if (action === 'submit') {
-          apiForm.submit();
-        }
-        logLine('called ' + action);
-      });
-    });
-  });
-</script>
+            // API & events
+            var apiForm = document.getElementById('api-form');
+            apiForm.setSchema({
+                fields: [{
+                        type: 'text',
+                        name: 'apiName',
+                        label: 'Name',
+                        required: true,
+                        width: 'half'
+                    },
+                    {
+                        type: 'email',
+                        name: 'apiEmail',
+                        label: 'Email',
+                        required: true,
+                        width: 'half'
+                    }
+                ],
+                submitLabel: 'Submit'
+            });
+            var log = document.getElementById('log');
+
+            function logLine(text) {
+                var line = document.createElement('div');
+                line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + text;
+                log.prepend(line);
+            }
+            ['ready', 'input', 'change', 'validate', 'invalid', 'submit', 'success', 'error', 'reset'].forEach(function(name) {
+                apiForm.addEventListener('neiki-forms:' + name, function() {
+                    logLine(name);
+                });
+            });
+            document.querySelectorAll('[data-action]').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var action = button.getAttribute('data-action');
+                    if (action === 'fill') {
+                        apiForm.setValues({
+                            apiName: 'Jindřich Stoklasa',
+                            apiEmail: 'jindrich@example.com'
+                        });
+                    } else if (action === 'validate') {
+                        apiForm.validate();
+                    } else if (action === 'reset') {
+                        apiForm.reset();
+                    } else if (action === 'submit') {
+                        apiForm.submit();
+                    }
+                    logLine('called ' + action);
+                });
+            });
+        });
+    </script>
 
 </body>
+
 </html>
