@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/img/logo.svg" alt="Neiki's Forms" width="400">
+  <img src="assets/img/logo.svg" alt="Neiki's Forms" style="height: 90px; width: auto;">
 </p>
 
 <h1 align="center">Neiki's Forms</h1>
